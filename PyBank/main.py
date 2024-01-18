@@ -1,6 +1,5 @@
 import os
 import csv
-import datetime
 
 #path to csv file
 csvpath = os.path.join("Resources", "budget_data.csv")
@@ -17,23 +16,34 @@ with open(csvpath) as csvfile:
     header = next(csvreader)
     
     #setting variables at start value 0
-    nettotal = 0.0
-    #how to loop through and count 1 column of values?  VBA allowed by column, this requires a further definition that I dont understand
     monthcount = 0.0
-    #change = sum of the numbers add pos and neg together how?
+    nettotal = 0.0
+    change = 0.0
+    greatinc = 0.0
+    greatdec = 0.0
 
+    #set dictionary names
+    date = []
+    pnl = []
+    
     #loop time
     for row in csvreader:
-        nettotal += int(row[1])
-        monthcount 
+        monthcount +=1
+        nettotal += int(row[1]) 
+        date.append(row[0]) 
+        pnl.append(row[1])  
+        
+    #change = sum of the numbers add pos and neg together how?
+    #loop through to find the greatest inc/dec using if/elif or maybe min max function?
 
-    
 
 
 print("Financial Analysis")
 print("------------------------")
-print("Total months " + str(monthcount))
-print("Total: " + str(nettotal))
-print("Average Change: " + str(change/monthcount))
-#print("Greatest Increase in Profits: " + str(great_inc))
-#print("Greatest Decrease in Profit: " + str(great_dec))
+print(f"Total months: {monthcount}")
+print(f"Total: {nettotal}")
+#print(f"Average Change: {change}/{monthcount}")
+#print(f"Greatest Increase in Profits: {greatinc}")
+#print(f"Greatest Decrease in Profit: {greatdec}")
+
+#export results to analysis folder

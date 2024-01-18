@@ -15,10 +15,24 @@ with open(csvpath) as csvfile:
     #skip the header line
     header = next(csvreader)
 
-#count the number of votes
-    
+    votes = 0.0
+
+    for row in csvreader:
+        votes +=1  #count the number of votes
+
+  
 #list names of unique people in row[2]
     
-# % each candidate won, need the total count, their count, then divide and turn into a percent
+# % each candidate won, need the total count, their count, then divide and turn into a percent - will have to do for loops to get this
     
 #list the winner - this is just getting the formatting they want
+
+print("Election Results")
+print("------------------------")
+print(f"Total votes: {votes}")
+print("------------------------")
+#print stats for each candidate
+print("------------------------")
+#print(f"Winner: {the_winner}")
+
+#export results to analysis folder
